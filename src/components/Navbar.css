@@ -1,0 +1,37 @@
+.img_container{
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+    gap: 5rem;
+    position: fixed; */
+    background: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    /* display: block; */
+    padding: 0.7rem 1.7rem;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.8rem;
+    /* backdrop-filter: blur(15px); */
+    
+}
+.pokeapi_img{
+    width: 80px;
+    margin: 10px;
+}
+.Navbar_list{
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    text-align: center;
+}
+.Navbar_list > span{
+    background-color: palegreen;
+    margin: 10px;
+}
