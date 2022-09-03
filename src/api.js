@@ -16,3 +16,11 @@ export const GetEachPokemonFromApi = async(url) =>{
         return pokemonData;
     }catch(err){}
 };
+
+export const GetEachPokemonSpeciesFromApi = async(url) =>{
+    try{
+        const api = await fetch(url);
+        const pokemonData = await api.json();
+        return pokemonData;
+    }catch(err){}
+};
