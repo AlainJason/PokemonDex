@@ -6,7 +6,7 @@ const Pokemon = (props) => {
   const { pokemon } = props;
   let navigate = useNavigate();
   function cclick(e) {
-    navigate("/" + pokemon.id);
+    navigate("/" + pokemon.name);
   }
 
   return (

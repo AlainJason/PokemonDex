@@ -5,7 +5,7 @@ import { GetPokemonURLFromApi, GetEachPokemonFromApi } from "../api.js";
 
 function PokemonCard() {
   const [allPokemon, setAllPokemon] = useState([]);
-  const [loadMore, setLoadMore] = useState(10);
+  const [loadMore, setLoadMore] = useState(15);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetchPokemon();

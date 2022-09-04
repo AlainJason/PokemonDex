@@ -27,6 +27,7 @@
     align-content: center;
     background-color: white;
     margin-left: 1rem;
+    text-transform: capitalize;
 }
 
 .pokemon_type_container2{
@@ -39,6 +40,11 @@
     width: 80%;
     margin-left: 10%;
 }
+/* .PokemonEvolutionChain{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+} */
 
 @media screen and (max-width: 1200px){
     .pokemon_each_container {
@@ -53,6 +59,14 @@
     .box{
         width:90%;
         margin-left: 5%;
+    }
+    .PokemonEvolutionChain{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        padding-top: 3rem;
     }
 }
 

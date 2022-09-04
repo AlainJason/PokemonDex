@@ -1,36 +1,67 @@
 import React, { useEffect, useState } from "react";
 import "./PokemonProfile.css";
 import { useNavigate, useParams } from "react-router-dom";
-import { GetEachPokemonFromApi, GetEachPokemonSpeciesFromApi } from "../api";
+import { GetEachPokemonFromApi } from "../api";
 import { BackgroundColorChoose } from "../background";
 import { LinearProgress } from "@mui/material";
 const PokemonProfile = () => {
-  let { pokemonID } = useParams();
+  let { pokemonName } = useParams();
   const [pokemon, setPokemon] = useState([
     {
       Pokemon: {},
       PokemonSpecies: {},
+      PokemonEvolutionChain: {
+        ONE: "",
+        TWO: "",
+        THREE: "",
+        nameONE: "",
+        nameTWO: "",
+        nameTHREE: "",
+      },
     },
   ]);
+  const navigate = useNavigate();
+  function cclick(e) {
+    navigate("/" + e.target.name);
+  }
+
   const [loading, setLoading] = useState(true);
-  const PokemonUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonID}`;
-  const PokemonSpeciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokemonID}`;
+  const PokemonUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+  const PokemonSpeciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokemonName}`;
 
   const ppp = async () => {
     setLoading(true);
     const eachPokemon = await GetEachPokemonFromApi(PokemonUrl);
-    const eachPokemonSpecies = await GetEachPokemonSpeciesFromApi(
-      PokemonSpeciesUrl
+    const eachPokemonSpecies = await GetEachPokemonFromApi(PokemonSpeciesUrl);
+    const chain = await GetEachPokemonFromApi(
+      eachPokemonSpecies.evolution_chain.url
+    );
+    const chainIMG1 = await GetEachPokemonFromApi(
+      `https://pokeapi.co/api/v2/pokemon/${chain.chain?.species.name}`
+    );
+    const chainIMG2 = await GetEachPokemonFromApi(
+      `https://pokeapi.co/api/v2/pokemon/${chain.chain?.evolves_to[0]?.species.name}`
+    );
+    const chainIMG3 = await GetEachPokemonFromApi(
+      `https://pokeapi.co/api/v2/pokemon/${chain.chain?.evolves_to[0]?.evolves_to[0]?.species.name}`
     );
     setPokemon({
       Pokemon: eachPokemon,
       PokemonSpecies: eachPokemonSpecies,
+      PokemonEvolutionChain: {
+        ONE: chainIMG1.sprites.front_default,
+        TWO: chainIMG2?.sprites.front_default,
+        THREE: chainIMG3?.sprites.front_default,
+        nameONE: chain.chain?.species.name,
+        nameTWO: chain.chain?.evolves_to[0]?.species.name,
+        nameTHREE: chain.chain?.evolves_to[0]?.evolves_to[0]?.species.name,
+      },
     });
     setLoading(false);
   };
   useEffect(() => {
     ppp();
-  }, []);
+  }, [pokemonName]);
   return (
     <div className="box">
       {loading ? (
@@ -126,6 +157,27 @@ const PokemonProfile = () => {
                   : pokemon.Pokemon.stats[5].base_stat
               }
             />
+            <h1>Pokemon Evolution Chain</h1>
+            <div className="PokemonEvolutionChain">
+              <img
+                src={pokemon.PokemonEvolutionChain.ONE}
+                name={pokemon.PokemonEvolutionChain.nameONE}
+                alt=""
+                onClick={cclick}
+              />
+              <img
+                src={pokemon.PokemonEvolutionChain.TWO}
+                name={pokemon.PokemonEvolutionChain.nameTWO}
+                alt=""
+                onClick={cclick}
+              />
+              <img
+                src={pokemon.PokemonEvolutionChain.THREE}
+                name={pokemon.PokemonEvolutionChain.nameTHREE}
+                alt=""
+                onClick={cclick}
+              />
+            </div>
           </div>
         </div>
       )}

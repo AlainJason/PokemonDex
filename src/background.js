@@ -15,11 +15,9 @@ export const BackgroundColorChoose = (typename) =>{
                 return "rgb(176, 38, 235)"
             }
             case "fire" :{
-                console.log("fire")
                 return "rgb(235, 71, 38)"
             }
             case "flying" :{
-                console.log("flying")
                 return "rgb(161, 215, 230)"
             }
             case "water" :{
