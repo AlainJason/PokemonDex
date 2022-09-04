@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/my-app/static/css/main.3591095a.css",
+    "main.js": "/my-app/static/js/main.c7c69fa4.js",
+    "static/media/pokeapi_256.3fa72200.png": "/my-app/static/media/pokeapi_256.3fa72200.888baca4809420be1126.png",
+    "index.html": "/my-app/index.html",
+    "main.3591095a.css.map": "/my-app/static/css/main.3591095a.css.map",
+    "main.c7c69fa4.js.map": "/my-app/static/js/main.c7c69fa4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3591095a.css",
+    "static/js/main.c7c69fa4.js"
+  ]
+}
