@@ -1,7 +1,7 @@
 {
   "name": "pokemon_dex",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage": "https://AlainJason.github.io/PokemonDex",
   "dependencies": {
     "@emotion/react": "^11.10.4",

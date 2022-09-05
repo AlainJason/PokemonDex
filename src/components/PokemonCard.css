@@ -10,8 +10,10 @@
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    gap:1rem
+    gap:1rem;
 }
+
+
 
 .pokemon {
     display: flex;
@@ -26,6 +28,11 @@
     text-align: center;
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.089);
     background-color: #ffffff;
+    transition: .4s ease;
+}
+
+.pokemon:hover{
+  transform: scale(1.1);
 }
 .pokemon_type_container {
     display: flex;

@@ -8,7 +8,6 @@ const Pokemon = (props) => {
   function cclick(e) {
     navigate("/" + pokemon.name);
   }
-
   return (
     <div className="pokemon" name={pokemon.name} onClick={cclick}>
       <img src={pokemon.sprites.front_default} alt="" />

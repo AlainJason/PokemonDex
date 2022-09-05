@@ -40,11 +40,12 @@
     width: 80%;
     margin-left: 10%;
 }
-/* .PokemonEvolutionChain{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-} */
+.PokemonEvolutionChain > img{
+    transition: .4s ease;
+}
+.PokemonEvolutionChain > img:hover{
+    transform: scale(1.5);
+}
 
 @media screen and (max-width: 1200px){
     .pokemon_each_container {
