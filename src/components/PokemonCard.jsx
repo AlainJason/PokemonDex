@@ -12,7 +12,17 @@ function PokemonCard() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetchPokemon();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [loadMore]);
+
+  function handleScroll() {
+    if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
+    console.log('Fetch more list items!');
+    setLoadMore({
+      offset: loadMore.offset + 20,
+    });
+  }
 
   const fetchPokemon = async () => {
     setLoading(true);
@@ -25,8 +35,8 @@ function PokemonCard() {
       return await GetEachPokemonFromApi(pokemon.url);
     });
     const PokemondataResults = await Promise.all(eachPokemon);
-    //setAllPokemon(allPokemon.concat(PokemondataResults));
-    setAllPokemon(PokemondataResults);
+    setAllPokemon(allPokemon.concat(PokemondataResults));
+    //setAllPokemon(PokemondataResults);
     setLoading(false);
   };
   //console.log(allPokemon);
@@ -36,31 +46,6 @@ function PokemonCard() {
         {allPokemon.map((pokemon, index) => (
           <Pokemon key={index} pokemon={pokemon} />
         ))}
-      </div>
-
-      <div className="button_div">
-        <button
-          onClick={() => {
-            if (!loading && loadMore.offset) {
-              setLoadMore({
-                offset: loadMore.offset - 20,
-              });
-            }
-          }}
-        >
-          -20
-        </button>
-        <button
-          onClick={() => {
-            if (!loading) {
-              setLoadMore({
-                offset: loadMore.offset + 20,
-              });
-            }
-          }}
-        >
-          +20
-        </button>
       </div>
     </div>
   );

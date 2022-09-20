@@ -4,6 +4,7 @@
   "private": false,
   "homepage": "https://AlainJason.github.io/PokemonDex",
   "dependencies": {
+    "@babel/runtime": "^7.19.0",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/material": "^5.10.3",

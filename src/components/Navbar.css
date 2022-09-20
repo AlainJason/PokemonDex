@@ -1,11 +1,11 @@
-.img_container{
+.img_container {
     /* display: flex;
     flex-direction: row;
     justify-content: space-between;
     background-color: white;
     gap: 5rem;
     position: fixed; */
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(231, 228, 228, 0.788);
     width: 100%;
     /* display: block; */
     padding: 0.7rem 1.7rem;
@@ -18,20 +18,29 @@
     justify-content: space-between;
     gap: 0.8rem;
     /* backdrop-filter: blur(15px); */
-    
+
 }
-.pokeapi_img{
+
+.pokeapi_img {
     width: 80px;
     margin: 10px;
 }
-.Navbar_list{
-    margin: 5px;
+
+.Navbar_list {
     display: flex;
     flex-direction: row;
     gap: 1.5rem;
     text-align: center;
 }
-.Navbar_list > span{
-    background-color: palegreen;
-    margin: 10px;
+
+.Navbar_list>span {
+    margin-top: 12px;
+    margin-right: 10px;
 }
+
+/* @media screen and (max-width: 450px) {
+    .img_container {
+        flex-direction: column;
+    }
+
+} */

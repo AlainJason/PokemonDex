@@ -30,10 +30,6 @@
     background-color: #ffffff;
     transition: .4s ease;
 }
-
-.pokemon:hover{
-  transform: scale(1.1);
-}
 .pokemon_type_container {
     display: flex;
     gap: 0.5rem;
