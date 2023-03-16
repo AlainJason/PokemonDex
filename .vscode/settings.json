@@ -1,0 +1,13 @@
+{
+    "eslint.format.enable": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+    },
+    "editor.detectIndentation": false,
+    "eslint.workingDirectories": ["src"],
+    "eslint.validate": ["javascript", "javascriptreact"]
+    // typescript "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"]
+}
