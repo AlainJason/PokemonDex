@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Mains, Routes, Route } from 'react-router-dom';
+import { HashRouter  as Mains, Routes, Route } from 'react-router-dom';
 import {AppContainer} from '../components_styled/Container.Style';
 
 import Navbar from '../components/Navbar';
