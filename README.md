@@ -1,6 +1,29 @@
+<br />
+<p align="center">
+  <h3 align="center">
+  React Pokédex
+  </h3>
+
+
+  <p align="center">
+  A simple PokemonDex made with React & PokéAPI
+    <br />
+    <br />
+    <a href="https://alainjason.github.io/PokemonDex/">View Demo</a>
+    ·
+    <a href="https://github.com/AlainJason/PokemonDex/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/AlainJason/PokemonDex/issues">Request Feature</a>
+  </p>
+</p>
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+[Live Demo] (https://alainjason.github.io/PokemonDex/).
 
 ## Available Scripts
 
