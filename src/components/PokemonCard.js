@@ -13,7 +13,7 @@ const PokemonCard = (props) => {
 
 
   const pokemonCardOnclick = () =>{
-    //navigate("/"+ pokemon.name)
+    navigate("/"+ pokemon.name);
     document.getElementById(props.scroll).removeEventListener('scroll', props.handleScroll);
   }
 

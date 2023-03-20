@@ -3,19 +3,22 @@ import styled from "styled-components"
 export const TableContainer = styled.div`
   display: flex;
   flex-direction: column;
-  
-  //grid-column-start: 1;
-  //grid-column-end: 4;
-  //flex-grow: 1;
+  align-items: center;
+ 
   h2 {
     text-transform: capitalize;
+  }
+  p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
   }
 `
 export const DataTable = styled.table`
   border-collapse:collapse;
-  width: 70%;
+  width: 80%;
   th {
-    font-size: 1.875rem;
+    font-size: 0.875rem;
     font-weight: normal;
     text-align: right;
     border-width: 1px 0;
@@ -25,7 +28,7 @@ export const DataTable = styled.table`
     padding: 4px 10px;
   }
   td{
-    font-size: 1.875rem;
+    font-size: 0.875rem;
   }
 `
 export const TableTd = styled.td`

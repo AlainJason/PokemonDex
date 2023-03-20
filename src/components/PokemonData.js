@@ -6,57 +6,70 @@ import PokemonDataTable from '../components/PokemonDataTable';
 import PokemonStatsTable from './PokemonStatsTable';
 
 import {GetPokemonSpeciesByName} from '../api/api'
+import { PokemonTypeColors } from '../TypeColor'
 
 const BTN = styled.button`
-  background-color: blue; 
-  border: solid .1rem;
-  border-color: black;
-  color: white;
+  background-color: white;
   
-  padding: 10px 20px;
+  border: 0;
+  color: black;
+  
+  padding: 10px 10px;
   text-align: center;
   text-decoration: none;
+  text-transform: uppercase;
   display: inline-block;
   font-size: 16px;
-  
-  //border-radius: 5px;
   cursor: pointer;
+  
+  :focus {
+    border-bottom: solid .1rem;
+    border-color: red;
+    font-weight: 600;
+  }
 `
 const ButtonDiv  = styled.div`
   display: grid;
-  grid-template-columns: 50% 50%;
+  justify-content: center;
+  grid-template-columns: 30% 30%;
+  gap: 20%;
 `
 
 const ImgDiv = styled.div`
-  //background-color: green;
+  max-width: 100%;
 `
 
 
 const DataDiv = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 10%;
-
+  margin-top: 5%;
   align-items: center;
-  justify-items: center;
-  justify-self: center;
+  //justify-items: center;
+  //justify-self: center;
   box-shadow: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05);
   border-radius: .5rem;
   
-  background-color: green;
-  
+  overflow-y: auto;
+    overflow-x: hidden;
+
+  background-color: #CDCDB9;
+
   img {
-    //max-width: 100%;
-    //background-color: aqua;
-  }
+    max-width: 100%;
+  } 
   @media (max-width: 950px) {
-    //display: flex;
     flex-direction: column;
-    //width: 100%;
   }
 `;
-const TestTTT = styled.div`
-  background-color: aqua;
+const DataRightSide = styled.div`
+  background-color: white;
+
+  //display: grid;
+  position: relative;
+  width: 100%;
+  height: 100%;
+
 `;
 
 
@@ -128,34 +141,34 @@ const PokemonData = () => {
   useEffect(() => {
     fetch()
   },[pokemonName])
-  
+  console.log(pokemon.types.one)
 
 
   return (
-        <DataDiv>
-          <ImgDiv>
-            <img src={pokemon.imgsrc} alt={`${pokemon.name} pic`} />
-          </ImgDiv>
-          <TestTTT>
-            <ButtonDiv>
-              <BTN onClick={() => setPage({
-                biography: true,
-                states: false,
-                evolutions: false})}>
-                biography
-              </BTN>
-              <BTN onClick={() => setPage({
-                biography: false,
-                states: true,
-                evolutions: false})}>
-                states
-              </BTN>
-            </ButtonDiv>
-            {(page.biography) && <PokemonDataTable  pokemon={pokemon}/>}
-            
-            {(page.states) && <PokemonStatsTable pokemon={pokemon}/>}
-          </TestTTT>
-        </DataDiv>
+    <DataDiv inputColor = {pokemon.types.one}>
+      <ImgDiv>
+        <img src={pokemon.imgsrc} alt={`${pokemon.name} pic`} />
+      </ImgDiv>
+      <DataRightSide>
+        <ButtonDiv>
+          <BTN onClick={() => setPage({
+            biography: true,
+            states: false,
+            evolutions: false})}>
+            biography
+          </BTN>
+          <BTN onClick={() => setPage({
+            biography: false,
+            states: true,
+            evolutions: false})}>
+            states
+          </BTN>
+        </ButtonDiv>
+        {(page.biography) && <PokemonDataTable  pokemon={pokemon}/>}
+        
+        {(page.states) && <PokemonStatsTable pokemon={pokemon}/>}
+      </DataRightSide>
+    </DataDiv>
   )
 }
 

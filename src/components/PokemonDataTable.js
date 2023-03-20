@@ -5,7 +5,7 @@ const PokemonDataTable = ({pokemon}) => {
   const  P  = pokemon
   return (
     <TableContainer>
-      <h2>{P.name}</h2>
+      <h2>Data</h2>
       <DataTable>
         <tbody>
           <tr>
