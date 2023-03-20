@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FooterDiv = styled.div`
-  display: flex;
+  display: grid;
   background-color: #ffffff19;
   height: 10vh;
   justify-content: center;

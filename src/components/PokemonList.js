@@ -5,9 +5,8 @@ import { GetPokemonsList } from '../api/api';
 import { PokemonContainer} from '../components_styled/PokemonCard.Style';
 
 
-function PokemonList({setPokeData,setSpecies}) {
+function PokemonList() {
   const [allPokemon, setAllPokemon] = useState([]);
-  const [fetch, setFetch] = useState(true);
   const [loadMore, setLoadMore] = useState({
     limit: 18,
     offset: 0,
@@ -16,7 +15,6 @@ function PokemonList({setPokeData,setSpecies}) {
   const fetchPokemon = async () => {
     const pokemon = await GetPokemonsList(loadMore);
     setAllPokemon(allPokemon.concat(pokemon));
-    setFetch(false)
   };
 
   function handleScroll() {
@@ -31,30 +29,24 @@ function PokemonList({setPokeData,setSpecies}) {
   };
 
   useEffect(() => {
+ 
     fetchPokemon();
-    document.getElementById("screen-component-className").addEventListener('scroll', handleScroll);
+      document.getElementById("screen-component-className").addEventListener('scroll', handleScroll);
     
     return () => {
-      document.getElementById("screen-component-className").removeEventListener('scroll', handleScroll);
+      
     }
    
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[loadMore.offset]);
-
-  useEffect(() => {
-    setPokeData(allPokemon[0]);
-  },[fetch])
-
-
-  //setPokeData(allPokemon[0])
   return (
     <PokemonContainer id="screen-component-className">
       {allPokemon.map((pokemon) => (
         <PokemonCard 
           key={pokemon.id}
           pokemon={pokemon} 
-          setPokeData={setPokeData}
-          setSpecies={setSpecies}/>  
+          scroll={"screen-component-className"}
+          handleScroll={handleScroll}/>  
       ))}
     </PokemonContainer>
   );

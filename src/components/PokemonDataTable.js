@@ -1,9 +1,8 @@
 import React from 'react'
 import { TableContainer, DataTable, TableTd} from '../components_styled/Table.Styled'
-import {PokemonCardSpan} from '../components_styled/PokemonCard.Style'
-const PokemonDataTable = (props) => {
-  const {P} = props;
-  
+import {PokemonCardSpan, PokemonCardSpanDiv} from '../components_styled/PokemonCard.Style'
+const PokemonDataTable = ({pokemon}) => {
+  const  P  = pokemon
   return (
     <TableContainer>
       <h2>{P.name}</h2>
@@ -16,12 +15,14 @@ const PokemonDataTable = (props) => {
           <tr>
             <th>Type</th>
             <TableTd>
-              <PokemonCardSpan inputColor = {P.types.one}>
-                {P.types.one}
+              <PokemonCardSpanDiv>
+              <PokemonCardSpan inputColor={P.types.one}>
+               {P.types.one}
               </PokemonCardSpan>
-              <PokemonCardSpan inputColor = {P.types.two}>
-                {P.types.two}
+              <PokemonCardSpan inputColor={P.types.two}>
+              {P.types.two}
               </PokemonCardSpan>
+              </PokemonCardSpanDiv>
             </TableTd>
           </tr>
           <tr>

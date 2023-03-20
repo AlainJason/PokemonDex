@@ -3,7 +3,7 @@ import { PokemonTypeColors } from '../TypeColor'
 
 export const PokemonContainer = styled.div`
     padding-top:1rem;
-    background-color: aqua;
+    //background-color: aqua;
     display: grid;
     grid-template-columns: repeat(3, 300px);
     gap: 1.5rem;
@@ -18,6 +18,7 @@ export const PokemonContainer = styled.div`
     }
     
     &::-webkit-scrollbar {
+      display: none;
     }
 `;
 
@@ -28,6 +29,7 @@ export const StyledPokemon = styled.div`
   border-radius: 5%;
   text-align: center;
   line-height: 1.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05);
   h4{
     text-transform: capitalize;
   }
@@ -56,10 +58,9 @@ export const PokemonCardSpan = styled.span`
 `;
 export const PokemonCardSpanDiv = styled.div`
   display: flex;
-  justify-content: center;
+  margin: auto;
   margin-bottom: 5px;
   gap: 10px;
-
 `
 export const PokemonCardImgDiv = styled.div`
   border-radius: 5%;

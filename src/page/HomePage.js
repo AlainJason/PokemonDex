@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { BrowserRouter as Mains, Routes, Route } from 'react-router-dom';
 import {AppContainer} from '../components_styled/Container.Style';
 
 import Navbar from '../components/Navbar';
@@ -10,22 +10,23 @@ import PokemonData from '../components/PokemonData';
 
 
 const HomePage = () => {
-  const [pokeData, setPokeData] = useState();
-  const [species,setSpecies] = useState();
   return (
-    <div>
+    <Mains>
       <Navbar />
       <AppContainer>
-        {/*<PokemonData 
-          pokeData={pokeData}
-          species={species}/>*/}
-          <PokemonList 
-          setPokeData={setPokeData}
-          setSpecies={setSpecies}/>
+        <Routes>
+          <Route 
+            path="/" 
+            element={<PokemonList />}
+          />
+          <Route  
+            path="/:pokemonName"           
+            element={<PokemonData />}
+          />
+        </Routes>
       </AppContainer>
-      <Footer /> 
-    </div>
-
+      <Footer />  
+    </Mains>
   )
 }
 

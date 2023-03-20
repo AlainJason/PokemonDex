@@ -22,31 +22,8 @@ export const GetPokemonsList = async (interval) => {
 export const GetPokemonSpeciesByName = async (name) => {
   try{
     const PokemonSpecies = await P.getPokemonSpeciesByName(name);
-    
-    const ChainURL = await PokemonSpecies.evolution_chain.url;
-    const ChainData = await GetEachPokemonFromApi(ChainURL);
-
-
-    /*const Pokemon = {
-      1 :
-      2 :
-      3 :
-    }
-    const Species = {
-      1 :
-      2 :
-      3 :
-    }*/
-
-    const evolves_one = await P.getPokemonByName(ChainData.chain.species.name);
-    const evolves_two = await P.getPokemonByName(ChainData.chain.evolves_to[0].species.name);
-    const evolves_tre = await P.getPokemonByName(ChainData.chain.evolves_to[0].evolves_to[0].species.name)
-    console.log(ChainData)
-    console.log(PokemonSpecies)
-    console.log(evolves_one)
-    console.log(evolves_two)
-    console.log(evolves_tre)
-    return [PokemonSpecies, ChainData];
+    const PokemonDefault = await P.getPokemonByName(name);    
+    return [PokemonSpecies, PokemonDefault];
   }
   catch (error){
     console.log('There was an ERROR: ', error);

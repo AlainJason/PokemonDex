@@ -3,6 +3,7 @@ import styled from "styled-components"
 export const TableContainer = styled.div`
   display: flex;
   flex-direction: column;
+  
   //grid-column-start: 1;
   //grid-column-end: 4;
   //flex-grow: 1;
@@ -12,9 +13,9 @@ export const TableContainer = styled.div`
 `
 export const DataTable = styled.table`
   border-collapse:collapse;
-  width: 100%;
+  width: 70%;
   th {
-    font-size: .875rem;
+    font-size: 1.875rem;
     font-weight: normal;
     text-align: right;
     border-width: 1px 0;
@@ -22,6 +23,9 @@ export const DataTable = styled.table`
     border-color: #f0f0f0;
     background-color: #fff;
     padding: 4px 10px;
+  }
+  td{
+    font-size: 1.875rem;
   }
 `
 export const TableTd = styled.td`
@@ -33,8 +37,7 @@ export const TableTd = styled.td`
 `
 
 export const TableContainer2 = styled(TableContainer)`
-  grid-column-start: 1;
-  grid-column-end: 4;
+
   td {
     text-align: right;
   }

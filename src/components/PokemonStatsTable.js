@@ -1,7 +1,7 @@
 import React from 'react'
 import { TableContainer2, DataTable, Barchart} from '../components_styled/Table.Styled'
 const PokemonStatsTable = (props) => {
-  const {P} = props;
+  const  P  = props.pokemon
   return (
     <TableContainer2>
     <h2>Base states</h2>
