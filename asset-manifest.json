@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.css": "/AlainJason/PokemonDex/static/css/main.31d6cfe0.css",
+    "main.js": "/AlainJason/PokemonDex/static/js/main.1bfd15cf.js",
+    "index.html": "/AlainJason/PokemonDex/index.html",
+    "main.1bfd15cf.js.map": "/AlainJason/PokemonDex/static/js/main.1bfd15cf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31d6cfe0.css",
+    "static/js/main.1bfd15cf.js"
+  ]
+}
