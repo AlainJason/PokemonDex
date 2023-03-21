@@ -1,10 +1,10 @@
 <br />
-<p align="center">
-  <h3 align="center">
+<p >
+  <h1 >
   React Pokémondex
-  </h3>
+  </h1>
 
-  <p align="center">
+  <p >
   A simple PokemonDex made with <a href="https://react.dev/">React</a> & <a href="https://pokeapi.co/">PokéAPI</a>
     <br />
     <br />
