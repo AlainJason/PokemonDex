@@ -7,6 +7,7 @@ export const TableContainer = styled.div`
  
   h2 {
     text-transform: capitalize;
+    padding-left: 20px;
   }
   p {
     overflow-wrap: break-word;
@@ -26,6 +27,7 @@ export const DataTable = styled.table`
     border-color: #f0f0f0;
     background-color: #fff;
     padding: 4px 10px;
+    width: 20%;
   }
   td{
     font-size: 0.875rem;
