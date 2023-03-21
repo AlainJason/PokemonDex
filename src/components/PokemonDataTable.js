@@ -6,6 +6,7 @@ const PokemonDataTable = ({pokemon}) => {
   return (
     <TableContainer>
       <h2>Data</h2>
+
       <DataTable>
         <tbody>
           <tr>
@@ -16,12 +17,12 @@ const PokemonDataTable = ({pokemon}) => {
             <th>Type</th>
             <TableTd>
               <PokemonCardSpanDiv>
-              <PokemonCardSpan inputColor={P.types.one}>
-               {P.types.one}
-              </PokemonCardSpan>
-              <PokemonCardSpan inputColor={P.types.two}>
-              {P.types.two}
-              </PokemonCardSpan>
+                <PokemonCardSpan inputColor={P.types.one}>
+                  {P.types.one}
+                </PokemonCardSpan>
+                {P.types.two && <PokemonCardSpan inputColor={P.types?.two}>
+                  {P.types?.two}
+                </PokemonCardSpan>}
               </PokemonCardSpanDiv>
             </TableTd>
           </tr>
