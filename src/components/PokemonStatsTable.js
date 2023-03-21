@@ -49,6 +49,15 @@ const PokemonStatsTable = (props) => {
             <div></div>
           </Barchart>
         </tr>
+        <tr>
+          <th>Total</th>
+          <td>{P.states.hp + 
+               P.states.attack + 
+               P.states.defense + 
+               P.states.special_A +
+               P.states.special_D +
+               P.states.speed}</td>
+        </tr>
       </tbody>
       </DataTable>               
   </TableContainer2>
