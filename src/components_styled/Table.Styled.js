@@ -31,6 +31,7 @@ export const DataTable = styled.table`
   }
   td{
     font-size: 0.875rem;
+    padding: 0px 10px;
   }
 `
 export const TableTd = styled.td`
