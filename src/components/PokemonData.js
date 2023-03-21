@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components'
 
@@ -7,6 +7,11 @@ import PokemonStatsTable from './PokemonStatsTable';
 
 import {GetPokemonSpeciesByName} from '../api/api'
 import { PokemonTypeColors } from '../TypeColor'
+
+
+function Loading() {
+  return <h2>🌀 Loading...</h2>;
+}
 
 const BTN = styled.button`
   background-color: white;
@@ -21,12 +26,12 @@ const BTN = styled.button`
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
-  
-  :focus {
+  ${props => props.clicking === true && `
     border-bottom: solid .1rem;
     border-color: red;
     font-weight: 600;
-  }
+  `}
+
 `
 const ButtonDiv  = styled.div`
   display: grid;
@@ -51,7 +56,7 @@ const DataDiv = styled.div`
   border-radius: .5rem;
   
   overflow-y: auto;
-    overflow-x: hidden;
+  overflow-x: hidden;
 
   background-color: #CDCDB9;
 
@@ -66,9 +71,9 @@ const DataRightSide = styled.div`
   background-color: white;
 
   //display: grid;
-  position: relative;
+  //position: relative;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
 
 `;
 
@@ -145,30 +150,38 @@ const PokemonData = () => {
 
 
   return (
-    <DataDiv inputColor = {pokemon.types.one}>
-      <ImgDiv>
-        <img src={pokemon.imgsrc} alt={`${pokemon.name} pic`} />
-      </ImgDiv>
-      <DataRightSide>
-        <ButtonDiv>
-          <BTN onClick={() => setPage({
-            biography: true,
-            states: false,
-            evolutions: false})}>
-            biography
-          </BTN>
-          <BTN onClick={() => setPage({
-            biography: false,
-            states: true,
-            evolutions: false})}>
-            states
-          </BTN>
-        </ButtonDiv>
-        {(page.biography) && <PokemonDataTable  pokemon={pokemon}/>}
-        
-        {(page.states) && <PokemonStatsTable pokemon={pokemon}/>}
-      </DataRightSide>
-    </DataDiv>
+    <>
+    {loading ? (<Loading />) : 
+    (
+      <DataDiv inputColor = {pokemon.types.one}>
+        <ImgDiv>
+          <img src={pokemon.imgsrc} alt={`${pokemon.name} pic`} />
+        </ImgDiv>
+          <DataRightSide>
+            <ButtonDiv>
+              <BTN onClick={() => setPage({
+                biography: true,
+                states: false,
+                evolutions: false})}
+                clicking={page.biography}>
+                biography
+              </BTN>
+              <BTN onClick={() => setPage({
+                biography: false,
+                states: true,
+                evolutions: false})}
+                clicking={page.states}>
+                states
+              </BTN>
+            </ButtonDiv>
+            {(page.biography) && <PokemonDataTable  pokemon={pokemon}/>}
+            
+            {(page.states) && <PokemonStatsTable pokemon={pokemon}/>}
+          </DataRightSide>
+      </DataDiv>
+    )}
+    </>
+
   )
 }
 
