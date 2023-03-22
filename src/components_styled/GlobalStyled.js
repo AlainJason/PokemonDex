@@ -1,7 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
-
+// @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 export const GlobalStyles = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+    @font-face {
+      font-family: 'Poppins', sans-serif;
+      src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+    }
     body {
         font-family: 'Poppins', sans-serif;  
         margin: 0;

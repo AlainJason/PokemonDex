@@ -19,7 +19,7 @@ const BTN = styled.button`
   border: 0;
   color: black;
   
-  padding: 10px 10px;
+  padding: 10px;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
@@ -41,40 +41,53 @@ const ButtonDiv  = styled.div`
 `
 
 const ImgDiv = styled.div`
-  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  
+  p {
+    letter-spacing: .3em;
+    font-weight: 600;
+    color:rgba(0,0,0,0.5);
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    margin-left: 10px;
+  }  
+  @media (max-width: 950px) {
+    margin-top: 5%;
+    flex-direction: column;
+  }
+  
 `
 
 
 const DataDiv = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 5%;
-  align-items: center;
-  //justify-items: center;
-  //justify-self: center;
+  align-self: center;
   box-shadow: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05);
   border-radius: .5rem;
+
   
-  overflow-y: auto;
-  overflow-x: hidden;
-
-  background-color: #CDCDB9;
-
+  background: linear-gradient(
+    0.5turn,
+    ${ props => PokemonTypeColors[props.inputColor].light},
+    ${ props => PokemonTypeColors[props.inputColor].medium}); 
+    
   img {
     max-width: 100%;
   } 
   @media (max-width: 950px) {
+    margin-top: 5%;
     flex-direction: column;
   }
 `;
 const DataRightSide = styled.div`
   background-color: white;
-
-  //display: grid;
-  //position: relative;
   width: 100%;
-  min-height: 100%;
-
+  border: solid 5px;
+  @media (max-width: 950px) {
+    width: auto;
+  }
 `;
 
 
@@ -155,6 +168,7 @@ const PokemonData = () => {
     (
       <DataDiv inputColor = {pokemon.types.one}>
         <ImgDiv>
+          <p>{pokemon.name}</p>
           <img src={pokemon.imgsrc} alt={`${pokemon.name} pic`} />
         </ImgDiv>
           <DataRightSide>

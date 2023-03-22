@@ -4,46 +4,48 @@ export const TableContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
- 
   h2 {
     text-transform: capitalize;
-    padding-left: 20px;
   }
   p {
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    hyphens: auto;
+    width: 80%;
+    text-align:justify;
   }
 `
 export const DataTable = styled.table`
   border-collapse:collapse;
   width: 80%;
   th {
-    font-size: 0.875rem;
-    font-weight: normal;
+    font-size: 1rem;
+    font-weight: Medium;
     text-align: right;
     border-width: 1px 0;
     border-style: solid;
     border-color: #f0f0f0;
     background-color: #fff;
-    padding: 4px 10px;
-    width: 20%;
+    padding: 5px;
+    //width: 0%;
+    color:rgba(0,0,0,0.5);
   }
-  td{
+  /* td{
     font-size: 0.875rem;
-    padding: 0px 10px;
-  }
+    padding: 10px 3px;
+  } */
 `
 export const TableTd = styled.td`
     border-width: 1px 0;
     border-style: solid;
     border-color: #f0f0f0;
     background-color: #fff;
-    padding: 4px 10px;
+    padding: 5px 10px;
+    P{
+      text-transform: capitalize;
+    }
 `
 
 export const TableContainer2 = styled(TableContainer)`
-
+  max-height: 300px;
+  overflow-y: auto;
   td {
     text-align: right;
   }
@@ -51,7 +53,7 @@ export const TableContainer2 = styled(TableContainer)`
 
 export const Barchart = styled(TableTd)`
   width: 100%;
-  min-width: 150px;
+  min-width: 100px;
   
   div{
     width: ${props => (props.state * 0.6)}%;

@@ -1,17 +1,20 @@
 import React from 'react'
 import { TableContainer, DataTable, TableTd} from '../components_styled/Table.Styled'
 import {PokemonCardSpan, PokemonCardSpanDiv} from '../components_styled/PokemonCard.Style'
+
+import {PokemonID} from '../components/PokemonID'
+
 const PokemonDataTable = ({pokemon}) => {
   const  P  = pokemon
   return (
     <TableContainer>
-      <h2>Data</h2>
+      <h2>Pokédex Data</h2>
 
       <DataTable>
         <tbody>
           <tr>
             <th>National №</th>
-            <TableTd><strong>{P.id}</strong></TableTd>
+            <TableTd>{PokemonID(P.id)}</TableTd>
           </tr>
           <tr>
             <th>Type</th>
@@ -32,21 +35,21 @@ const PokemonDataTable = ({pokemon}) => {
           </tr>
           <tr>
             <th>Height</th>
-            <TableTd>{P.Height}</TableTd>
+            <TableTd>{P.Height/10} m</TableTd>
           </tr>
           <tr>
             <th>Weight</th>
-            <TableTd>{P.Weight}</TableTd>
+            <TableTd>{P.Weight/10} kg</TableTd>
           </tr>
           <tr>
             <th>Abilities</th>
             <TableTd>
-              <h5>
+              <p>
                 {P.Abilities.one}
-              </h5>
-              <h5>
-                {P.Abilities.two}
-              </h5>
+              </p>
+              {P.Abilities.two && <p>
+                {P.Abilities.two} (Hidden ability)
+              </p>}
             </TableTd>
           </tr>
         </tbody>
