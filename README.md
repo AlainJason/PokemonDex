@@ -27,6 +27,7 @@
 - [PokéAPI](https://pokeapi.co/)
 - [React](https://reactjs.org/)
 - [Styled-components](https://styled-components.com/)
+- [Pokedex Promise v2](https://github.com/PokeAPI/pokedex-promise-v2) 
 
 
 ## Available Scripts
