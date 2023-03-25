@@ -1,20 +1,33 @@
 import styled from "styled-components"
 
 export const TableContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-height: 300px;
+
+  //display: flex;
+  //flex-direction: column;
+  //flex-wrap: wrap;
+  //align-items: center;
+  //gap: 5%;
+  //justify-content: center;
+
+
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  justify-items: center;
+  width: 100%;
+  overflow-y: auto;
   h2 {
     text-transform: capitalize;
   }
-  p {
-    width: 80%;
-    text-align:justify;
+
+  @media (max-width:700px) {
+    grid-template-columns: repeat(1, 100%);
   }
+
 `
 export const DataTable = styled.table`
   border-collapse:collapse;
-  width: 80%;
+  width: 90%;
   th {
     font-size: 1rem;
     font-weight: Medium;
@@ -24,13 +37,11 @@ export const DataTable = styled.table`
     border-color: #f0f0f0;
     background-color: #fff;
     padding: 5px;
-    //width: 0%;
     color:rgba(0,0,0,0.5);
   }
-  /* td{
-    font-size: 0.875rem;
-    padding: 10px 3px;
-  } */
+  @media (max-width:700px) {
+    width: 100%;
+  }
 `
 export const TableTd = styled.td`
     border-width: 1px 0;
@@ -38,23 +49,25 @@ export const TableTd = styled.td`
     border-color: #f0f0f0;
     background-color: #fff;
     padding: 5px 10px;
-    P{
-      text-transform: capitalize;
-    }
+    text-transform: capitalize;
 `
 
 export const TableContainer2 = styled(TableContainer)`
-  max-height: 300px;
-  overflow-y: auto;
+  grid-template-columns: repeat(1, 100%);
+  
   td {
     text-align: right;
   }
+  p {
+    width: 90%;
+    text-align:justify;
+  }
+
 `
 
 export const Barchart = styled(TableTd)`
   width: 100%;
-  min-width: 100px;
-  
+  min-width: 80px;
   div{
     width: ${props => (props.state * 0.6)}%;
     background-color: #ffdd57;

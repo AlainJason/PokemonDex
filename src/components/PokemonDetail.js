@@ -2,8 +2,8 @@ import React, { Suspense, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components'
 
-import PokemonDataTable from '../components/PokemonDataTable';
-import PokemonStatsTable from './PokemonStatsTable';
+import PokemonDetailBiography from './PokemonDetailBiography';
+import PokemonDetailStats from './PokemonDetailStats';
 
 import {GetPokemonSpeciesByName} from '../api/api'
 import { PokemonTypeColors } from '../TypeColor'
@@ -123,6 +123,14 @@ const PokemonData = () => {
       special_D : String,
       speed     : String
     },
+    localNo : {},
+    eggGroup: {},
+    captureRate: String,
+    baseHappiness: String,
+    growthRate: String,
+    baseExperience: String,
+    hatchCounter: String,
+    genderRate: String
   })
   
   const fetch = async () => {
@@ -152,6 +160,14 @@ const PokemonData = () => {
         special_D : P[1].stats[4].base_stat,
         speed     : P[1].stats[5].base_stat
       },
+      localNo :{...P[0].pokedex_numbers,},
+      eggGroup:{...P[0].egg_groups},
+      captureRate: P[0].capture_rate,
+      baseHappiness: P[0].base_happiness,
+      growthRate: P[0].growth_rate.name,
+      baseExperience: P[1].base_experience,
+      hatch_counter: P[0].hatch_counter,
+      genderRate: P[0].gender_rate
     })
     setLoading(false)
   }
@@ -188,9 +204,9 @@ const PokemonData = () => {
                 states
               </BTN>
             </ButtonDiv>
-            {(page.biography) && <PokemonDataTable  pokemon={pokemon}/>}
+            {(page.biography) && <PokemonDetailBiography  pokemon={pokemon}/>}
             
-            {(page.states) && <PokemonStatsTable pokemon={pokemon}/>}
+            {(page.states) && <PokemonDetailStats pokemon={pokemon}/>}
           </DataRightSide>
       </DataDiv>
     )}

@@ -16,11 +16,6 @@ const calMinMax = (name , stats) => {
 }
 
 
-const Test = styled.div`
-  max-height: 100px;
-  overflow-y: auto;
-`
-
 const PokemonStatsTable = (props) => {
   const  P  = props.pokemon
   return (
@@ -56,7 +51,7 @@ const PokemonStatsTable = (props) => {
           <TableTd>{Math.floor(calMinMax("Defense", P.states.defense)[1])}</TableTd>
         </tr>
         <tr>
-          <th>SP.attack</th>
+          <th>SP.Atk</th>
           <td>{P.states.special_A}</td>
           <Barchart state={P.states.special_A}>
             <div></div>
@@ -65,7 +60,7 @@ const PokemonStatsTable = (props) => {
           <TableTd>{Math.floor(calMinMax("special_A", P.states.special_A)[1])}</TableTd>
         </tr>
         <tr>
-          <th>SP.Defense</th>
+          <th>SP.Def</th>
           <td>{P.states.special_D}</td>
           <Barchart state={P.states.special_D}>
             <div></div>
@@ -106,22 +101,9 @@ const PokemonStatsTable = (props) => {
 
       <p>The ranges shown on the right are for a level 100 Pokémon. 
         Maximum values are based on a beneficial nature, 252 EVs, 
-        31 IVs; minimum values are based on a hindering nature, 0 EVs, 0 IVs.</p>  
-        <p>The ranges shown on the right are for a level 100 Pokémon. 
-        Maximum values are based on a beneficial nature, 252 EVs, 
-        31 IVs; minimum values are based on a hindering nature, 0 EVs, 0 IVs.</p>  
-        <p>The ranges shown on the right are for a level 100 Pokémon. 
-        Maximum values are based on a beneficial nature, 252 EVs, 
-        31 IVs; minimum values are based on a hindering nature, 0 EVs, 0 IVs.</p>  
-        <p>The ranges shown on the right are for a level 100 Pokémon. 
-        Maximum values are based on a beneficial nature, 252 EVs, 
-        31 IVs; minimum values are based on a hindering nature, 0 EVs, 0 IVs.</p>
-        <p>The ranges shown on the right are for a level 100 Pokémon. 
-        Maximum values are based on a beneficial nature, 252 EVs, 
-        31 IVs; minimum values are based on a hindering nature, 0 EVs, 0 IVs.</p> 
-        <p>The ranges shown on the right are for a level 100 Pokémon. 
-        Maximum values are based on a beneficial nature, 252 EVs, 
-        31 IVs; minimum values are based on a hindering nature, 0 EVs, 0 IVs.</p>   
+        31 IVs; minimum values are based on a hindering nature, 0 EVs, 0 IVs.
+      </p>  
+  
 
              
   </TableContainer2>

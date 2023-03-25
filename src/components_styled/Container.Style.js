@@ -5,5 +5,8 @@ export const AppContainer = styled.div`
     height: 80vh;
     display: grid;
     margin: auto;
-    overflow-y: auto;
+    
+    @media (max-width:950px) {
+      overflow-y: auto;
+    }
 `;

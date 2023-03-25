@@ -9,7 +9,6 @@ export const PokemonContainer = styled.div`
     gap: 1.5rem;
     justify-content: center;
     overflow-y: auto;
-    overflow-x: hidden;
     @media (max-width: 950px) {
       grid-template-columns: repeat(2, 300px);
     }

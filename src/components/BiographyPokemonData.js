@@ -1,15 +1,19 @@
 import React from 'react'
 import { TableContainer, DataTable, TableTd} from '../components_styled/Table.Styled'
 import {PokemonCardSpan, PokemonCardSpanDiv} from '../components_styled/PokemonCard.Style'
+import {PokemonID} from './PokemonID'
+import styled from 'styled-components'
 
-import {PokemonID} from '../components/PokemonID'
 
-const PokemonDataTable = ({pokemon}) => {
-  const  P  = pokemon
+
+const BiographyPokemonData = ({pokemon}) => {
+  const  P  = pokemon;
+
+
+  console.log(P.localNo[0])
   return (
-    <TableContainer>
+    <div>
       <h2>Pokédex Data</h2>
-
       <DataTable>
         <tbody>
           <tr>
@@ -44,18 +48,29 @@ const PokemonDataTable = ({pokemon}) => {
           <tr>
             <th>Abilities</th>
             <TableTd>
-              <p>
+              <h4>
                 {P.Abilities.one}
-              </p>
-              {P.Abilities.two && <p>
-                {P.Abilities.two} (Hidden ability)
-              </p>}
+              </h4>
+              {P.Abilities.two && <h5>
+                {P.Abilities.two}(Hidden ability)
+              </h5>}
+            </TableTd>
+          </tr>
+          <tr>
+            <th>Local №</th>
+            <TableTd>
+              {Object.values(P.localNo).map((number) => (
+                <p>
+                  {PokemonID(number.entry_number)}
+                  <small> ({number.pokedex.name})</small>
+                </p>
+              ))}
             </TableTd>
           </tr>
         </tbody>
       </DataTable>
-    </TableContainer>
+    </div>
   )
 }
 
-export default PokemonDataTable
+export default BiographyPokemonData

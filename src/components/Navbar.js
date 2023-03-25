@@ -9,7 +9,9 @@ const NavbarDiv = styled.div`
     ${PokemonTypeColors.fire.medium}
     90%);
   height: 10vh;
+
   
+
   
   display: flex;
   justify-content: center;
@@ -25,7 +27,7 @@ const NavbarDiv = styled.div`
 const navbar = () => {
   return (
     <NavbarDiv>
-      Pokédex
+      <h2>Pokédex</h2>
     </NavbarDiv>
   )
 }
